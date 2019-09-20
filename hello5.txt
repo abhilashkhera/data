@@ -1,0 +1,29 @@
+ var options = {};
+    main();
+    // calling function to get the API data
+    function main(params) {
+        console.log("hello1");
+        options = {
+            method: 'GET',
+            url: 'https://api.github.com/repos/abhilashkhera/data/issues',
+            headers: {
+                accept: 'application/json'
+            },
+            json: true
+        };
+        //storing the data receive in body
+        return new Promise(function (resolve, reject) {
+            request(options, function (error, response, body) {
+                if (error) throw new Error(error);
+    
+                var html = "";
+                var arr = body.result;
+                console.log("hello3");
+                console.log(a);
+                html += "<b>Issue Title: " + body.result[0].title + "</b></br>";
+    
+                console.log(html);
+                console.log({ 'message': html });
+            });
+        });
+    }
